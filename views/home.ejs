@@ -1,0 +1,23 @@
+<%- include('partials/header'); -%>
+
+<h1>Hello</h1>
+
+<% var length = 100; %>
+<% var mystring = Content;%>
+<% var truncatestring = mystring.substring(0,length) %>
+
+<p> <%= truncatestring %> ...</p>
+
+<%# for(let i = 0; i < Posts.length; i++){ %>
+ <%#    let obj = Posts[i]; %>
+ <%#     console.log(obj.title); %>
+ <%# }; %>
+
+<% Posts.forEach(function (object) { %>
+    <h1> <%=object.title; %> </h1>
+    <input type="hidden" name="postId" value="<%= object._id %>">
+    <p> <%= (object.post).substring(0,100) + " ..."; %> <li><a href= <%= "/post/" + object._id %> > Read More </a></li></p>
+ <% }); %>
+
+<%- include('partials/footer'); -%>
+
